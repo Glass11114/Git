@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Perfil Interactiva</title>
+    <style>
+        /* Variables de color para fácil personalización */
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --bg-dark: #0f0c29;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+            overflow: hidden;
+        }
+
+        /* Contenedor de la tarjeta con efecto Glassmorphism */
+        .card {
+            position: relative;
+            width: 350px;
+            height: 450px;
+            background: var(--glass);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+            transition: 0.5s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border: 1px solid var(--secondary);
+        }
+
+        /* Foto de perfil con resplandor */
+        .img-box {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--secondary);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            text-align: center;
+            color: white;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .content span {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 300;
+        }
+
+        /* Botón animado */
+        .btn {
+            margin-top: 30px;
+            padding: 10px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 10px 20px var(--secondary);
+        }
+
+        /* Elementos decorativos de fondo (Círculos) */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(var(--primary), var(--secondary));
+            filter: blur(1px);
+            z-index: -1;
+            animation: move 10s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(0, 0); }
+            to { transform: translate(50px, 100px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="circle" style="width: 200px; height: 200px; top: 10%; left: 15%;"></div>
+    <div class="circle" style="width: 150px; height: 150px; bottom: 10%; right: 15%; animation-delay: -5s;"></div>
+
+    <div class="card">
+        <div class="img-box">
+            <img src="https://via.placeholder.com/150" alt="Perfil">
+        </div>
+        <div class="content">
+            <h2>Nombre de Usuario</h2>
+            <span>Desarrollador Full Stack</span>
+            <p style="margin-top: 15px; font-size: 0.85rem; padding: 0 20px; opacity: 0.8;">
+                Apasionado por crear interfaces modernas y experiencias digitales únicas.
+            </p>
+        </div>
+        <a href="#" class="btn">Seguir Perfil</a>
+    </div>
+
+</body>
+</html>
